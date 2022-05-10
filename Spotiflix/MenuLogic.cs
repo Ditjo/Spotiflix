@@ -13,6 +13,7 @@ namespace Spotiflix
         {
             MenuGraphics menuGraphicObj = new();
             MenuLogic menuLogicObj = new();
+            
             bool exit = true;
             do
             {
@@ -44,6 +45,7 @@ namespace Spotiflix
         {
             MenuGraphics menuGraphicObj = new();
             MenuLogic menuLogicObj = new();
+            Tools tools = new Tools();//<----------Delete later
             bool exit = true;
             do
             {

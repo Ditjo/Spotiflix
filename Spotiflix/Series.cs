@@ -13,33 +13,33 @@ namespace Spotiflix
         internal void SeriesLogicAdd()
         {
             SeriesProperties seriesProperties = new();
-            MediaGraphics mediaGraphics = new();
+            AddToLibraryGraphics addGraphics = new();
             Tools tools = new();
 
             bool exit = true;
             string media = "Series";
 
-            mediaGraphics.Header(media);
+            addGraphics.Header(media);
             //Calls graphics, then input Method. Repeat
-            mediaGraphics.Title();
-            seriesProperties.Title = tools.GetInput();
+            addGraphics.Title();
+            seriesProperties.Title = tools.GetStringInput();
             //mediaGraphics.Length();
             //Insert Method to get length of Film
-            mediaGraphics.Genre();
-            seriesProperties.Genre = tools.GetInput();
+            addGraphics.Genre();
+            seriesProperties.Genre = tools.GetStringInput();
             //mediaGraphics.ReleaseDate();
             //Insert Method to get DateTime
-            mediaGraphics.Webside();
-            seriesProperties.Webside = tools.GetInput();
-            //mediaGraphics.SeriesSeason();
-            //seriesProperties.Season =
-            //mediaGraphics.SeriesEpisode();
-            //seriesProperties.Episode =
-            mediaGraphics.SeriesEpisodeTitle();
-            seriesProperties.EpisodeTitel = tools.GetInput();
+            addGraphics.Webside();
+            seriesProperties.Webside = tools.GetStringInput();
+            addGraphics.SeriesSeason();
+            seriesProperties.Season = tools.GetIntInput();
+            addGraphics.SeriesEpisode();
+            seriesProperties.Episode = tools.GetIntInput();
+            addGraphics.SeriesEpisodeTitle();
+            seriesProperties.EpisodeTitel = tools.GetStringInput();
 
             //Do you want to add the media to the library
-            mediaGraphics.Confirmation(seriesProperties.Title);
+            addGraphics.Confirmation(seriesProperties.Title);
             do
             {
                 //Press y or n key to confirm or decline
@@ -48,7 +48,7 @@ namespace Spotiflix
                 {
                     case ConsoleKey.Y:
                         //Add
-                        mediaGraphics.Confirmed(seriesProperties.Title);
+                        addGraphics.Confirmed(seriesProperties.Title);
                         Console.ReadKey();
                         exit = false;
                         break;

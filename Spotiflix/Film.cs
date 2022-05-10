@@ -10,27 +10,27 @@ namespace Spotiflix
         internal void FilmLogicAdd()
         {
             FilmProperties filmProperties = new();
-            MediaGraphics mediaGraphics = new();
+            AddToLibraryGraphics addGraphics = new();
             Tools tools = new();
 
             bool exit = true;
             string media = "Film";
 
-            mediaGraphics.Header(media);
+            addGraphics.Header(media);
             //Calls graphics, then input Method. Repeat
-            mediaGraphics.Title();
-            filmProperties.Title = tools.GetInput();
+            addGraphics.Title();
+            filmProperties.Title = tools.GetStringInput();
             //mediaGraphics.Length();
             //Insert Method to get length of Film
-            mediaGraphics.Genre();
-            filmProperties.Genre = tools.GetInput();
+            addGraphics.Genre();
+            filmProperties.Genre = tools.GetStringInput();
             //mediaGraphics.ReleaseDate();
             //Insert Method to get DateTime
-            mediaGraphics.Webside();
-            filmProperties.Webside = tools.GetInput();
+            addGraphics.Webside();
+            filmProperties.Webside = tools.GetStringInput();
 
             //Do you want to add the media to the library
-            mediaGraphics.Confirmation(filmProperties.Title);
+            addGraphics.Confirmation(filmProperties.Title);
             do
             {
                 //Press y or n key to confirm or decline
@@ -39,7 +39,7 @@ namespace Spotiflix
                 {
                     case ConsoleKey.Y:
                         //Add
-                        mediaGraphics.Confirmed(filmProperties.Title);
+                        addGraphics.Confirmed(filmProperties.Title);
                         Console.ReadKey();
                         exit = false;
                         break;

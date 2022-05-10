@@ -11,31 +11,31 @@ namespace Spotiflix
         internal void MusicLogicAdd()
         {
             MusicProperties musicProperties = new();
-            MediaGraphics mediaGraphics = new();
+            AddToLibraryGraphics addGraphics = new();
             Tools tools = new();
 
             bool exit = true;
             string media = "Music";
 
-            mediaGraphics.Header(media);
+            addGraphics.Header(media);
             //Calls graphics, then input Method. Repeat
-            mediaGraphics.Title();
-            musicProperties.Title = tools.GetInput();
+            addGraphics.Title();
+            musicProperties.Title = tools.GetStringInput();
             //mediaGraphics.Length();
             //Insert Method to get length of Film
-            mediaGraphics.Genre();
-            musicProperties.Genre = tools.GetInput();
+            addGraphics.Genre();
+            musicProperties.Genre = tools.GetStringInput();
             //mediaGraphics.ReleaseDate();
             //Insert Method to get DateTime
-            mediaGraphics.Webside();
-            musicProperties.Webside = tools.GetInput();
-            mediaGraphics.MusicArtist();
-            musicProperties.Artist = tools.GetInput();
-            mediaGraphics.MusicAlbum();
-            musicProperties.Album = tools.GetInput();
+            addGraphics.Webside();
+            musicProperties.Webside = tools.GetStringInput();
+            addGraphics.MusicArtist();
+            musicProperties.Artist = tools.GetStringInput();
+            addGraphics.MusicAlbum();
+            musicProperties.Album = tools.GetStringInput();
 
             //Do you want to add the media to the library
-            mediaGraphics.Confirmation(musicProperties.Title);
+            addGraphics.Confirmation(musicProperties.Title);
             do
             {
                 //Press y or n key to confirm or decline
@@ -44,7 +44,7 @@ namespace Spotiflix
                 {
                     case ConsoleKey.Y:
                         //Add
-                        mediaGraphics.Confirmed(musicProperties.Title);
+                        addGraphics.Confirmed(musicProperties.Title);
                         Console.ReadKey();
                         exit = false;
                         break;
