@@ -19,7 +19,7 @@ namespace Spotiflix
         }
         internal void Length()
         {
-            Console.Write("Length: ");
+            Console.Write("Length in sec: ");
         }
         internal void Genre()
         {
@@ -27,7 +27,7 @@ namespace Spotiflix
         }
         internal void ReleaseDate()
         {
-            Console.Write("Release Date: ");
+            Console.Write("Release Date(yyyy-MM-dd): ");
         }
         internal void Webside()
         {

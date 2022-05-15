@@ -3,21 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Spotiflix
 {
 
-    public class MenuLogic
+    internal class MenuLogic
     {
+        public string path = @"C:\Spotiflix\Media";
+
+        public MenuLogic()
+        {
+            MenuMain();
+        }
+        
         internal void MenuMain()
         {
             MenuGraphics menuGraphicObj = new();
-            MenuLogic menuLogicObj = new();
+            
             
             bool exit = true;
             do
             {
-                
                 menuGraphicObj.MenuMain();
                 ConsoleKeyInfo menu = Console.ReadKey(true);
 
@@ -29,11 +36,11 @@ namespace Spotiflix
                         break;
                     case ConsoleKey.NumPad1:
                     case ConsoleKey.D1:
-                        menuLogicObj.MenuSearch();
+                        MenuSearch();
                         break;
                     case ConsoleKey.NumPad2:
                     case ConsoleKey.D2:
-                        menuLogicObj.MenuAdd();
+                        MenuAdd();
                         break;
 
                     default:
@@ -44,8 +51,17 @@ namespace Spotiflix
         internal void MenuSearch()
         {
             MenuGraphics menuGraphicObj = new();
-            MenuLogic menuLogicObj = new();
-            Tools tools = new Tools();//<----------Delete later
+            FileHandeling fileHandeling = new();
+            FilmProperties filmObj = new();
+            Tools tools = new();
+            FilmLogic filmlogic = new();
+            MusicLogic musicLogic = new();
+            SeriesLogic seriesLogic = new();
+
+            string searchWord;
+
+
+            
             bool exit = true;
             do
             {
@@ -59,16 +75,30 @@ namespace Spotiflix
                     break;
                 case ConsoleKey.NumPad1:
                 case ConsoleKey.D1:
-                    break;
+                        searchWord = tools.SearchWord().ToLower();
+                        filmlogic.FilmSearch(searchWord);
+                        seriesLogic.SeriesSearch(searchWord);
+                        musicLogic.MusicSearch(searchWord);
+                        Console.ReadKey();
+                        break;
                 case ConsoleKey.NumPad2:
                 case ConsoleKey.D2:
-                    break;
+                        searchWord = tools.SearchWord().ToLower();
+                        filmlogic.FilmSearch(searchWord);
+                        Console.ReadKey();
+                        break;
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
-                    break;
+                        searchWord = tools.SearchWord().ToLower();
+                        seriesLogic.SeriesSearch(searchWord);
+                        Console.ReadKey();
+                        break;
                 case ConsoleKey.NumPad4:
                 case ConsoleKey.D4:
-                    break;
+                        searchWord = tools.SearchWord().ToLower();
+                        musicLogic.MusicSearch(searchWord);
+                        Console.ReadKey();
+                        break;
 
                 default:
                     break;
@@ -79,7 +109,7 @@ namespace Spotiflix
         internal void MenuAdd()
         {
             MenuGraphics menuGraphicObj = new();
-            MenuLogic menuLogicObj = new();
+            
             FilmLogic filmlogic = new();
             MusicLogic musicLogic = new();
             SeriesLogic seriesLogic = new();
